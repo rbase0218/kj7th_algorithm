@@ -1,11 +1,11 @@
-import sys
-input = sys.stdin.readline
+def sum(n):
+    arr = [0] * 1000001    
+    arr[1] = 1
+    arr[2] = 2
+    
+    for i in range(3, n + 1):
+        arr[i] = (arr[i - 1] + arr[i - 2]) % 15746
+    return arr[n]
 
-n = int(input())
-dp = [0] * 1000001
-dp[1] = 1
-dp[2] = 2
-
-for k in range(3,n+1):
-    dp[k] = (dp[k-1]+ dp[k-2])%15746
-print(dp[n])
+if __name__ == "__main__":
+    print(sum(int(input())))
